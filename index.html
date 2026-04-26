@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冒险者 — 文字冒险游戏</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== Header ==================== -->
+  <header id="app-header">
+    <div class="header-brand">
+      <span class="header-logo">⚔️</span>
+      <span class="header-title">冒险者</span>
+      <span class="header-ver">v3</span>
+    </div>
+    <div class="header-status" id="header-status">
+      <!-- 动态渲染进度条 -->
+    </div>
+    <div class="header-actions">
+      <button id="btn-new-game" onclick="newGame()">🔄 新游戏</button>
+    </div>
+  </header>
+
+  <!-- ==================== Main ==================== -->
+  <main id="app-main">
+
+    <div id="left-panel">
+      <!-- 地点卡片 -->
+      <section id="location-card" class="glass">
+        <div class="glass-body" id="location-panel">
+          <!-- 动态渲染 -->
+        </div>
+      </section>
+
+      <!-- 消息日志 -->
+      <section id="message-card" class="glass" style="flex:1">
+        <div class="glass-header"><span>📜</span>冒险日志</div>
+        <div class="glass-body scroll" id="message-log">
+          <div class="msg-placeholder">正在初始化…</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 操作面板 -->
+    <aside id="right-panel">
+      <section id="actions-card" class="glass" style="flex:1">
+        <div class="glass-header"><span>📋</span>可用操作</div>
+        <div class="glass-body scroll" id="actions-panel">
+          <div class="msg-placeholder">正在加载按钮…</div>
+        </div>
+      </section>
+    </aside>
+
+  </main>
+
+  <!-- ==================== Footer ==================== -->
+  <footer id="app-footer">
+    <div class="footer-item"><span>🎒</span><span id="ft-inv">空</span></div>
+    <div class="footer-item"><span>🏠</span><span id="ft-home">无</span></div>
+    <div class="footer-item"><span>🏛️</span><span id="ft-guild">无</span></div>
+    <div class="footer-item"><span>🔬</span><span id="ft-tech">0项</span></div>
+    <div class="footer-item"><span>⚔️</span><span id="ft-atk">5</span></div>
+    <div class="footer-item"><span>🛡️</span><span id="ft-def">3</span></div>
+    <div class="footer-item"><span>📅</span><span id="ft-days">0</span></div>
+    <div class="footer-item"><span>💀</span><span id="ft-kills">0</span></div>
+    <div class="footer-item" style="margin-left:auto">
+      <input id="cheat-input" type="text" placeholder="🔧 调试指令..."
+        style="background:var(--bg-input);color:var(--text-secondary);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-size:11px;width:120px"
+        onkeydown="if(event.key==='Enter'){Cheats.run(this.value);this.value=''}">
+    </div>
+  </footer>
+
+  <!-- ==================== Toast 容器 ==================== -->
+  <div id="toast-container"></div>
+
+  <!-- ==================== 弹窗容器 ==================== -->
+  <div id="popup-container"></div>
+
+  <!-- 脚本（按依赖顺序 - logger 必须最先） -->
+  <script src="js/logger.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/survival.js"></script>
+  <script src="js/items.js"></script>
+  <script src="js/locations.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/classes.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/tech.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/npc.js"></script>
+  <script src="js/ui_core.js"></script>
+  <script src="js/ui_town.js"></script>
+  <script src="js/ui_home.js"></script>
+  <script src="js/ui_world.js"></script>
+  <script src="js/debug.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
